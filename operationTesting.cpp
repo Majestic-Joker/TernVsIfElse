@@ -19,7 +19,7 @@ auto endTime = std::chrono::system_clock::now();
 void testRange(vector<pair<int,int>>);
 
 int main() {
-  fin.open("input100000000");
+  fin.open("input10000000");
   fout.open("output");
 
   vector<pair<int,int>> range;
