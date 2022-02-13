@@ -29,17 +29,17 @@ struct TestData{
   int lines;
   int trues;
   int falses;
-  string tTime;
-  string iTime;
+  double tTime;
+  double iTime;
   TestData(){
     filename = "";
     lines = 0;
     trues = 0;
     falses = 0;
-    tTime = "";
-    iTime = "";
+    tTime = 0.0;
+    iTime = 0.0;
   }
-  TestData(string s, int l, int t, int f, string tT, string iT){
+  TestData(string s, int l, int t, int f, double tT, double iT){
     filename = s;
     lines = l;
     trues = t;
@@ -112,7 +112,7 @@ void TestRange(string name){
   temp.lines = r.size();
   temp.trues = trueBranch;
   temp.falses = falseBranch;
-  temp.tTime += to_string(seconds.count());
+  temp.tTime = seconds.count();
 
   trueBranch = falseBranch = 0;
   //begin timer
@@ -126,10 +126,10 @@ void TestRange(string name){
     }
   }
   //end timer
-  endTime = std::chrono::system_clock::now();filenames.push_back("input10.txt");
+  endTime = std::chrono::system_clock::now();
   seconds = endTime-start;
   //record results
-  temp.iTime += to_string(seconds.count());
+  temp.iTime = seconds.count();
   finalData.push_back(temp);
 }
 
@@ -138,7 +138,7 @@ void OutputData(){
   fout << "║Filename       ║Lines of Input ║True Branches  ║False Branches ║Ternary Time   ║If/Else Time   ║\n";
   fout << "╠═══════════════╬═══════════════╬═══════════════╬═══════════════╬═══════════════╬═══════════════╣\n";
   for(TestData data : finalData)
-    fout << "║" << setw(15) << right << data.filename << "║" << setw(15) << right << to_string(data.lines) << "║" << setw(15) << right << to_string(data.trues) << "║" << setw(15) << right << to_string(data.falses) << "║" << setw(15) << right << data.tTime << "║" << setw(15) << right << data.iTime << "║\n";
+    fout << "║" << setw(15) << right << data.filename << "║" << setw(15) << right << to_string(data.lines) << "║" << setw(15) << right << to_string(data.trues) << "║" << setw(15) << right << to_string(data.falses) << "║" << setprecision(5) << setw(15) << right << scientific << data.tTime << "║" << setw(15) << right << data.iTime << "║\n";
   fout << "╚═══════════════╩═══════════════╩═══════════════╩═══════════════╩═══════════════╩═══════════════╝\n";
 }
 
@@ -151,5 +151,5 @@ void ListFilenames(){
   filenames.push_back("input1000000.txt");
   filenames.push_back("input10000000.txt");
   filenames.push_back("input100000000.txt");
-  filenames.push_back("input1000000000.txt");
+  //filenames.push_back("input1000000000.txt");
 }
