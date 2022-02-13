@@ -1,0 +1,11 @@
+==Ternary Operation==
+Total Branches: 100000000
+True Branches: 44437654
+False Branches: 55562346
+Executed in: 1.03916 seconds
+
+==If/Else Operation==
+Total Branches: 100000000
+True Branches: 44437654
+False Branches: 55562346
+Executed in: 0.996766 seconds
