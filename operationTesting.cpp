@@ -19,8 +19,8 @@ auto endTime = std::chrono::system_clock::now();
 void testRange(vector<pair<int,int>>);
 
 int main() {
-  fin.open("input10000000");
-  fout.open("output");
+  fin.open("input10000000.txt");
+  fout.open("output.txt");
 
   vector<pair<int,int>> range;
   while(!fin.eof())

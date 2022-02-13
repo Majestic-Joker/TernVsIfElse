@@ -25,6 +25,7 @@ int main() {
 
 void generateNumbers(int n){
   string filename = "input" + to_string(n);
+  filename += ".txt";
   fout.open(filename);
   int count = n;
   while(count--){
