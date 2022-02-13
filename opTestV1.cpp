@@ -8,6 +8,7 @@ The branch results will be recorded in the file name output to ensure ternary an
 #include <fstream>
 #include <vector>
 #include <chrono>
+#include <ctime>
 
 using namespace std;
 
@@ -19,7 +20,7 @@ auto endTime = std::chrono::system_clock::now();
 void testRange(vector<pair<int,int>>);
 
 int main() {
-  fin.open("input10000000.txt");
+  fin.open("input100.txt");
   fout.open("output.txt");
 
   vector<pair<int,int>> range;
@@ -50,12 +51,12 @@ void testRange(vector<pair<int,int>> r){
   }
   //end timer
   endTime = std::chrono::system_clock::now();
-  std::chrono::duration<double> seconds = endTime-start;
+  std::chrono::duration<double, ratio<1,1000000000>> ms = endTime-start;
   //record results
   fout << "Total Branches: " << r.size() << "\n";
   fout << "True Branches: " << trueBranch << "\n";
   fout << "False Branches: " << falseBranch << "\n";
-  fout << "Executed in: " << seconds.count() << " seconds\n";
+  fout << "Executed in: " << ms.count() << " milliseconds\n";
 
   trueBranch = falseBranch = 0;
   fout << "\n==If/Else Operation==\n";
@@ -71,10 +72,10 @@ void testRange(vector<pair<int,int>> r){
   }
   //end timer
   endTime = std::chrono::system_clock::now();
-  seconds = endTime-start;
+  ms = endTime-start;
   //record results
   fout << "Total Branches: " << r.size() << "\n";
   fout << "True Branches: " << trueBranch << "\n";
   fout << "False Branches: " << falseBranch << "\n";
-  fout << "Executed in: " << seconds.count() << " seconds\n";
+  fout << "Executed in: " << ms.count() << " milliseconds\n";
 }

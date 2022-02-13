@@ -1,0 +1,11 @@
+{
+    "C_Cpp.errorSquiggles": "Disabled",
+    "files.associations": {
+        "string": "cpp",
+        "xutility": "cpp",
+        "chrono": "cpp",
+        "vector": "cpp",
+        "xstring": "cpp",
+        "ios": "cpp"
+    }
+}
